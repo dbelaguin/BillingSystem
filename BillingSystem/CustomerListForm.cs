@@ -30,6 +30,7 @@ namespace BillingSystem
         public CustomerListForm()
         {
             InitializeComponent();
+            this.Shown += (s, e) => { dgvCustomers.ClearSelection(); dgvCustomers.CurrentCell = null; };
             ConfigureDataGridView();
         }
 
@@ -583,6 +584,23 @@ namespace BillingSystem
             }
         }
 
+        private void btnViewBilling_Click(object sender, EventArgs e)
+        {
+            // Popup 1: walang napiling customer
+            if (dgvCustomers.SelectedRows.Count == 0 ||
+                dgvCustomers.SelectedRows[0].IsNewRow)
+            {
+                MessageBox.Show("Please select a customer first before viewing billing history.",
+                    "No Customer Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // hindi magbubukas ang form
+            }
 
+            int customerId = Convert.ToInt32(dgvCustomers.SelectedRows[0].Cells[0].Value);
+
+            using (var frm = new frmBillingHistory(customerId))
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }
