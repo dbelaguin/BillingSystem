@@ -131,7 +131,6 @@ namespace BillingSystem
         private void ConfigureDataGridView()
         {
 
-            dgvCustomers.Columns["Status"].DataPropertyName = "Status";
 
             dgvCustomers.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
@@ -527,7 +526,13 @@ namespace BillingSystem
             frmAuditLogs auditForm = new frmAuditLogs();
             auditForm.ShowDialog(this);
         }
-
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            using (frmChangePassword changePasswordForm = new frmChangePassword())
+            {
+                changePasswordForm.ShowDialog(this);
+            }
+        }
 
         private void btnManagePermissions_Click(object sender, EventArgs e)
         {

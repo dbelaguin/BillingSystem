@@ -47,6 +47,7 @@
             btnExportPdf = new Button();
             btnAuditLog = new Button();
             btnManagePermissions = new Button();
+            btnChangePassword = new Button();
             statusStrip1 = new StatusStrip();
             lblStatusUser = new ToolStripStatusLabel();
             lblStatusSep = new ToolStripStatusLabel();
@@ -229,6 +230,16 @@
             btnManagePermissions.Text = "Manage Permissions";
             btnManagePermissions.UseVisualStyleBackColor = true;
             btnManagePermissions.Click += btnManagePermissions_Click;
+            //
+            // btnChangePassword
+            //
+            btnChangePassword.Location = new Point(223, 374);
+            btnChangePassword.Name = "btnChangePassword";
+            btnChangePassword.Size = new Size(130, 29);
+            btnChangePassword.TabIndex = 12;
+            btnChangePassword.Text = "Change Password";
+            btnChangePassword.UseVisualStyleBackColor = true;
+            btnChangePassword.Click += btnChangePassword_Click;
             // 
             // statusStrip1
             // 
@@ -263,7 +274,7 @@
             statusTimer.Enabled = true;
             statusTimer.Interval = 1000;
             statusTimer.Tick += statusTimer_Tick;
-            // 
+            //  
             // CustomerListForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -271,6 +282,7 @@
             ClientSize = new Size(782, 453);
             Controls.Add(statusStrip1);
             Controls.Add(btnManagePermissions);
+            Controls.Add(btnChangePassword);
             Controls.Add(btnAuditLog);
             Controls.Add(btnExportPdf);
             Controls.Add(btnExportExcel);
@@ -313,6 +325,7 @@
         private Button btnExportPdf;
         private Button btnAuditLog;
         private Button btnManagePermissions;
+        private Button btnChangePassword;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel lblStatusUser;
         private ToolStripStatusLabel lblStatusSep;
